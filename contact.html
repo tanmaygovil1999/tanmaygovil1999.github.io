@@ -1,0 +1,91 @@
+ <!doctype html>
+
+<!-- this is a comment for human! -->
+
+<html>
+  <head>
+    <title> Contact Me  </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    <meta name="viewport" content="width=device-width, initial-scale+1, shrink-to-fit=no">
+    <meta name="name" content="Tanmay Govil's Portal">
+    <meta name="robot" content="noindex, nofollow">
+  </head>
+
+  <style>
+  h1 {
+    color: red;
+    font-size:70px;
+    position: relative;
+    top: 50px;
+  }
+  div{
+    position: relative;
+    top: 100px;
+  }
+  footer{
+    position: relative;
+    top: 500px;
+  }
+  </style>
+
+<body>
+
+  <h1> Contact</h1>
+        <p></p>
+        <div>
+        <a href="https://www.facebook.com/tanmay.govil.5/" class="fa fa-facebook"></a>
+
+        <a href="https://www.linkedin.com/in/tanmay-govil-6a4a72160/" class="fa fa-linkedin"></a>
+        <h3>Email: <a href="mailto:tanmaygovil1999@gmail.com" target="_blank">tanmaygovil1999@gmail.com</a></h3>
+    <!-- don't post physical address, personal phone number or other personal information on the web! -->
+
+        <h2>Portfolio</h2>
+        <h3>GitHub: <a href="http://github.com/tanmaygovil1999" target="_blank">http://github.com/tanmaygovil1999</a></h3>
+      </div>
+      <?php
+      // define variables and set to empty values
+      $name = $email = $gender = $comment = $website = "";
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = test_input($_POST["name"]);
+        $email = test_input($_POST["email"]);
+        $website = test_input($_POST["website"]);
+        $comment = test_input($_POST["comment"]);
+        $gender = test_input($_POST["gender"]);
+      }
+
+      function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+      ?>
+
+      <h4>Reach Out Me</h4>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        Name: <input type="text" name="name">
+        <br><br>
+        E-mail: <input type="text" name="email">
+        <br><br>
+        Website: <input type="text" name="website">
+        <br><br>
+        Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+        <br><br>
+        Gender:
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="other">Other
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+      </form>
+</body>
+
+<footer>
+<hr>
+<p><a href="example.html">Back to my portal</a><p>
+</footer>
+
+</html>
